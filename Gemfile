@@ -6,6 +6,9 @@ ruby '2.2.1'
 # Installed the devise gem
 gem 'devise'
 
+# Installed the figaro gem
+gem "figaro" 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 
@@ -36,6 +39,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # installing the paperclip gem
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem "paperclip-dropbox", ">= 1.1.7"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
