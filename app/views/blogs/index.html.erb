@@ -1,0 +1,28 @@
+  <div class="row">
+    <% @blogs.each do |blog| %>
+      <div class="col-md-3">
+
+        <div class="thumbnail">
+          <%= link_to image_tag(blog.image.url), blog %>
+          <div class="caption">
+            <h3>
+              <%= blog.name %><br>
+            </h3>
+            
+            <p>
+              <%= blog.summary %><br>
+            </p>
+
+            <%= link_to 'Show', blog, class: "btn btn-info" %>
+            <%= link_to 'Edit', edit_blog_path(blog), class: "btn btn-warning" %>
+            <%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          </div>
+        </div>
+        
+      </div>
+    <% end %>
+  </div>
+
+<br>
+
+<%= link_to 'New Blog', new_blog_path %>
