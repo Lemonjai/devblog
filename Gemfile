@@ -61,3 +61,12 @@ group :development, :test do
   gem 'spring'
 end
 
+group :production do
+
+	# Installing the pg gem
+	gem 'pg'
+
+	# Installing the 12factor for the heroku production
+	gem 'rails_12factor'
+end
+
