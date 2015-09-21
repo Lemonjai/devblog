@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DevStore</title>
+  <title>Wine Unique</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
 	<!--header render-->
 	<%= render 'layouts/header'%>
 
 	<div class="container">
-		<%= yield %>
-			<!--footer render-->
-			<%= render 'layouts/footer'%>
+		<p class="notice"><%= notice %></p>
+    	<p class="alert"><%= alert %></p>
+	<%= yield %>
+		<!--footer render-->
+		<%= render 'layouts/footer'%>
 	</div>
 
 </body>
