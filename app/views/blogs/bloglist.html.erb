@@ -16,6 +16,11 @@
             <p>
               <%= blog.summary %><br>
             </p>
+
+            <% if (user_signed_in?) && (current_user == blog.user)%>
+              <%= link_to 'Edit', edit_blog_path(blog), class: "btn btn-warning" %>
+              <%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            <% end %>
             
           </div>
         </div>

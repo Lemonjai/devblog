@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :blogs
+
   get 'pages/contact'
 
   get 'pages/about'
+
+  get 'bloglist' => "blogs#bloglist"
 
   root 'blogs#index'
 

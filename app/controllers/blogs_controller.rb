@@ -1,12 +1,16 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :bloglist]
   before_filter :check_user, only: [:edit, :update, :destroy]
 
   # GET /blogs
   # GET /blogs.json
+  def bloglist
+    @blogs = Blog.where(user: current_user).order("created_at DESC")
+  end
+
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.order("created_at DESC")
   end
 
   # GET /blogs/1
