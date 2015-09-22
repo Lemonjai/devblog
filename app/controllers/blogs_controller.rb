@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :check_user, only: [:edit, :update, :destroy]
 
   # GET /blogs
   # GET /blogs.json
@@ -71,5 +73,11 @@ class BlogsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
       params.require(:blog).permit(:image, :name, :summary, :description)
+    end
+
+    def check_user
+      if current_user != @blog.user
+        redirect_to root_url, alert:"Sorry, this blog belongs to someone else"
+      end
     end
 end

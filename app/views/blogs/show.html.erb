@@ -23,5 +23,7 @@
 	</div>
 </div>
 
-<%= link_to 'Edit', edit_blog_path(@blog), class: "btn btn-link" %> |
-<%= link_to 'Back', blogs_path, class: "btn btn-link" %>
+<% if current_user == @blog.user%>
+	<%= link_to 'Edit', edit_blog_path(@blog), class: "btn btn-link" %> |
+	<%= link_to 'Back', blogs_path, class: "btn btn-link" %>
+<% end %>
