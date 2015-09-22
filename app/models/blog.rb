@@ -13,4 +13,6 @@ class Blog < ActiveRecord::Base
 	validates :name, :summary, :description, presence: true
 	validates_attachment_presence :image
 
+	belongs_to :user
+
 end
