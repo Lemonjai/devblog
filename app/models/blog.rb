@@ -9,4 +9,8 @@ class Blog < ActiveRecord::Base
 									    :path => ":style/:id_filename"
 									    validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 	end
+
+	validates :name, :summary, :description, presence: true
+	validates_attachment_presence :image
+
 end
